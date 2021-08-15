@@ -11,6 +11,11 @@ var redPoints = 0;
 var greenPoints = 0;
 var rounds = 1;
 
+var Up1, Up2;
+var Down1, Down2;
+var Left1, Left2;
+var Right1, Right2;
+
 function setup(){
     createCanvas(1200, 700);
 
@@ -26,6 +31,62 @@ function setup(){
   button.style('font-size', '20px');
   button.style('color', 'blue');
   button.mousePressed(genValues);
+
+  Up1 = createButton('↑');
+  Up1.position(1100, 650);
+  Up1.size(40, 40);
+  Up1.style('font-size', '30px');
+  Up1.style('background-color', '#fa624b');
+  Up1.mousePressed(up1);
+
+  Down1 = createButton('↓');
+  Down1.position(1100, 690);
+  Down1.size(40, 40);
+  Down1.style('font-size', '30px');
+  Down1.style('background-color', '#fa624b');
+  Down1.mousePressed(down1);
+
+  Left1 = createButton('←');
+  Left1.position(1060, 670);
+  Left1.size(40, 40);
+  Left1.style('font-size', '30px');
+  Left1.style('background-color', '#fa624b');
+  Left1.mousePressed(left1);
+
+  Right1 = createButton('→');
+  Right1.position(1140, 670);
+  Right1.size(40, 40);
+  Right1.style('font-size', '30px');
+  Right1.style('background-color', '#fa624b');
+  Right1.mousePressed(right1);
+
+  Up2 = createButton('↑');
+  Up2.position(900, 650);
+  Up2.size(40, 40);
+  Up2.style('font-size', '30px');
+  Up2.style('background-color', 'green');
+  Up2.mousePressed(up2);
+
+  Down2 = createButton('↓');
+  Down2.position(900, 690);
+  Down2.size(40, 40);
+  Down2.style('font-size', '30px');
+  Down2.style('background-color', 'green');
+  Down2.mousePressed(down2);
+
+  Left2 = createButton('←');
+  Left2.position(860, 670);
+  Left2.size(40, 40);
+  Left2.style('font-size', '30px');
+  Left2.style('background-color', 'green');
+  Left2.mousePressed(left2);
+
+  Right2 = createButton('→');
+  Right2.position(940, 670);
+  Right2.size(40, 40);
+  Right2.style('font-size', '30px');
+  Right2.style('background-color', 'green');
+  Right2.mousePressed(right2);
 
 
 }
@@ -46,6 +107,38 @@ function genValues() {
     value2 += 1
 }
     timer = 25 - (redPoints + greenPoints/2);
+}
+
+function up1() {
+    ball.y += -9;
+}
+
+function down1() {
+    ball.y += 9;
+}
+
+function left1() {
+    ball.x += -9;
+}
+
+function right1() {
+    ball.x += 9;
+}
+
+function up2() {
+    ball2.y += -9;
+}
+
+function down2() {
+    ball2.y += 3;
+}
+
+function left2() {
+    ball2.x += -9;
+}
+
+function right2() {
+    ball2.x += 9;
 }
 
 
@@ -111,9 +204,6 @@ if (timer === 0 && ball.x != value1 && ball.y != value2) {
     text("y: ", 1020, 90);
 
     fill('blue');
-    fill('green');
-    fill('green');
-    fill('green');
     text(value1, 1050, 50);
     
     fill('blue');
@@ -125,6 +215,7 @@ if (timer === 0 && ball.x != value1 && ball.y != value2) {
     fill('red');
     text(redPoints + " points", 220, 50);
 
+    fill('green');
     text(greenPoints + " points", 220, 90);
 
     fill('gold');
