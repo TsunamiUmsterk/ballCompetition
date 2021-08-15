@@ -87,7 +87,7 @@ function draw(){
 if (timer === 0 && ball.x != value1 && ball.y != value2) {
     if(ball.x != value1 && ball.y != value2) {
         genValues();
-    timer = 25;
+    timer = 18;
     }
     
 }
@@ -111,6 +111,9 @@ if (timer === 0 && ball.x != value1 && ball.y != value2) {
     text("y: ", 1020, 90);
 
     fill('blue');
+    fill('green');
+    fill('green');
+    fill('green');
     text(value1, 1050, 50);
     
     fill('blue');
@@ -122,7 +125,6 @@ if (timer === 0 && ball.x != value1 && ball.y != value2) {
     fill('red');
     text(redPoints + " points", 220, 50);
 
-    fill('green');
     text(greenPoints + " points", 220, 90);
 
     fill('gold');
@@ -158,15 +160,6 @@ if (timer === 0 && ball.x != value1 && ball.y != value2) {
         fill('orange');
         textSize(30);
         text("Congratulations you have won the game 🥳😃", 300, 50);
-
-        rounds = null;
-        timer = null;
-        ball.x = null;
-        ball.y = null;
-        ball2.x = null;
-        ball2.y = null;
-        value1 = null;
-        value2 = null;
     } else if (greenPoints === 5) {
         fill('green');
         textSize(30);
