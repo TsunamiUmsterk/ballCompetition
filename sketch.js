@@ -16,6 +16,8 @@ var Down1, Down2;
 var Left1, Left2;
 var Right1, Right2;
 
+var i = 25;;
+
 function setup(){
     createCanvas(1200, 700);
 
@@ -95,6 +97,7 @@ function genValues() {
    value1 = round(random(1, 1000), 0);
    value2 = round(random(1, 700), 0);
 
+
    if(value1%3 === 1) {
        value1 += 2
    } else if (value1%3 === 2) {
@@ -106,7 +109,7 @@ function genValues() {
 } else if (value2%3 === 2) {
     value2 += 1
 }
-    timer = 25 - (redPoints + greenPoints/2);
+    timer = 25 - rounds*2;
 }
 
 function up1() {
@@ -152,7 +155,6 @@ function draw(){
     }
        if(timer >= 0 && ball.x === value1 && ball.y === value2) {
            
-        if(ball.x === value1 && ball.y === value2) {
         if(ball2.x != value1 && ball2.y != value2) {
 
             timer = null;
@@ -164,8 +166,6 @@ function draw(){
     }
 
     if(timer >= 0 && ball2.x === value1 && ball2.y === value2) {
-           
-        if(ball2.x === value1 && ball2.y === value2) {
         if(ball.x != value1 && ball.y != value2) {
 
             timer = null;
@@ -174,13 +174,14 @@ function draw(){
 
             rounds++;
         }   
-    }
 }
 
-if (timer === 0 && ball.x != value1 && ball.y != value2) {
-    if(ball.x != value1 && ball.y != value2) {
+
+if (timer === 0 && ball.x != value1 || ball.y != value2) {
+    if(ball2.x != value1 && ball2.y != value2) {
         genValues();
-    timer = 18;
+        timer = 25 - rounds*2;
+        rounds++;
     }
     
 }
@@ -220,6 +221,10 @@ if (timer === 0 && ball.x != value1 && ball.y != value2) {
 
     fill('gold');
     text("Round " + rounds , 550, 50);
+
+    if(timer === null) {
+        timer = "No";
+    }
     
     if(keyDown(LEFT_ARROW)){
         ball.x += -3;
@@ -250,11 +255,11 @@ if (timer === 0 && ball.x != value1 && ball.y != value2) {
     if(redPoints === 5) {
         fill('orange');
         textSize(30);
-        text("Congratulations you have won the game 🥳😃", 300, 50);
+        text("Congratulations you have won the game 🥳😃", 300, 350);
     } else if (greenPoints === 5) {
         fill('green');
         textSize(30);
-        text("Congratulations you have won the game 🥳😃", 300, 50);
+        text("Congratulations you have won the game 🥳😃", 300, 350);
 
             rounds.hide();
         text("Made by Umar Bashir, Age 13", 300, 400);
