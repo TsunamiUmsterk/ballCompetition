@@ -184,11 +184,7 @@ if (timer === 0 && ball.x != value1 || ball.y != value2) {
         rounds++;
     }
     
-}
-           
-           
-       }
-     
+}    
 
     stroke(12);
     textSize(30);
@@ -248,15 +244,15 @@ if (timer === 0 && ball.x != value1 || ball.y != value2) {
     else if(keyDown(87)){
         ball2.y += -3;
     }
-    else if(keyDown(90)){
+    else if(keyDown(68)){
         ball2.y += 3;
     }
 
-    if(redPoints === 5) {
+    if(redPoints === 8) {
         fill('orange');
         textSize(30);
         text("Congratulations you have won the game 🥳😃", 300, 350);
-    } else if (greenPoints === 5) {
+    } else if (greenPoints === 8) {
         fill('green');
         textSize(30);
         text("Congratulations you have won the game 🥳😃", 300, 350);
@@ -264,10 +260,6 @@ if (timer === 0 && ball.x != value1 || ball.y != value2) {
             rounds.hide();
         text("Made by Umar Bashir, Age 13", 300, 400);
     }
-
-  //  ball2.x = mouseX;
-  //  ball2.y = mouseY;
-    
     
     drawSprites();
 }
